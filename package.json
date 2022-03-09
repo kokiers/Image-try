@@ -1,0 +1,11 @@
+{
+  "name": "images",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "canvas": "^2.9.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
