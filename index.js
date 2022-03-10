@@ -47,8 +47,10 @@ async function forMatImg(dir){
   // ctx.stroke();
   // ctx.closePath();
   // 翻转
-  // ctx.translate(0, 1190)
-  // ctx.rotate(-Math.PI / 2);
+  ctx.translate(W/2, H/2)
+  ctx.rotate(Math.PI * 180/ 180);
+  ctx.translate(-W/2, -H/2)
+   // 翻转end
   let maxW = W / 2 - (PADDING * 2), maxH = H / 2 - (PADDING * 2)
   await loadImage(srcs).then((image) => {
     let mw = image.width, mh = image.height, dw = parseInt(mw >= maxW ? maxW : mw), dh = parseInt(dw * mh/ mw )
@@ -60,7 +62,6 @@ async function forMatImg(dir){
     }
   })
 
-  // ctx.translate(-0, -1190)
   const out = fs.createWriteStream(__dirname + `/after/A-${index}.png`)
   const stream = canvas.createPNGStream()
   stream.pipe(out)
